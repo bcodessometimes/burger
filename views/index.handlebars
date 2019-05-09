@@ -1,0 +1,30 @@
+<div>
+<h1>BURGERS!</h1>
+<h4>Menu!!</h4>
+ {{#each burgers}}
+    <div>
+        {{#unless eaten}}
+            <p>{{this.burger}}</p>
+            <button data-id={{this.id}}
+            class="eatBurger">
+                NOM NOM</button>
+            <hr>
+            
+            {{/unless}}
+        </div>
+    {{/each}}
+
+  <h4>EATEN</h4>
+    {{#each burgers}}
+        <div>
+    {{#if eaten}}
+    <p>{{this.burger}} </p>
+            <button data-id={{this.id}}
+            class="eatBurger">
+                DELETE</button>
+            <hr>
+    {{/if}}
+    </div>
+  {{/each}}
+
+</div>

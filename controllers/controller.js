@@ -4,9 +4,12 @@ var router = express.Router();
 
 router.get('/', function (req, res) {
     burgerModel.getAllBurgers(function(data) {
-        console.log(data, "this is the function from controller and the data is the data co,ing back from our db");
-        res.end();
-    })
+    var burgerObj = {
+        burgers: data
+    }
+    response.render("index", burgerObj)
+
+})
 })
 
 router.get('/about', function (req, res) {
@@ -14,3 +17,9 @@ router.get('/about', function (req, res) {
 })
   
 module.exports = router;
+
+// [ RowDataPacket { 
+//         id: 1, 
+//         burger: 'Bacon Cheeseburger', 
+//         eaten: 0 
+//     } ]
