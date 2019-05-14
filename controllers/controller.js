@@ -7,12 +7,22 @@ router.get('/', function (req, res) {
     var burgerObj = {
         burgers: data
     }
-    response.render("index", burgerObj)
+    res.render("index", burgerObj)
+    });
+});
 
+router.post("/api/burgers", function (req, res) {
+    burgerModel.postBurgers(function(data) {
+        res.end();
 })
 })
 
-router.get('/about', function (req, res) {
+router.put('/api/burger/:id', function (req, res) {
+    res.send('About birds')
+})
+
+
+router.delete('/api/burger/:id', function (req, res) {
     res.send('About birds')
 })
   
